@@ -41,9 +41,137 @@ image: 'background_sub_1.jpg'
 
 # アジェンダ
 
+* クリックアニメーション
+* モーション
 * アイコン
 * Twitterの連携
 
+---
+
+## クリックアニメーション
+
+<div class="grid grid-cols-[50%,50%] gap-1"><div>
+
+```markdown
+<div v-click>Tailwindとは</div>
+```
+
+<div>▶︎をクリックすると表示</div>
+<br>
+<div v-click>Tailwindとは</div>
+<br>
+
+```markdown
+<v-clicks>
+
+- CSSのフレームワーク
+- 1つのクラス名は1つのstyleに対応
+- 作る人によって異なるデザインになる
+- レスポンシブ対応が楽
+
+</v-clicks>
+
+```
+<div>▶︎をクリックすると順番に表示</div>
+
+<v-clicks>
+
+- CSSのフレームワーク
+- 1つのクラス名は1つのstyleに対応
+- 作る人によって異なるデザインになる
+- レスポンシブ対応が楽
+
+</v-clicks>
+</div><div>
+
+```markdown
+<div v-click>Tailwindのチートシートはこちら</div>
+<a v-after href="https://flowbite.com/tools/tailwind-cheat-sheet/">Tailwind CSS Cheat Sheet</a>
+```
+<div>▶︎をクリックすると同時に表示</div>
+<br>
+<div v-click>Tailwindのチートシートはこちら</div>
+<a v-after href="https://flowbite.com/tools/tailwind-cheat-sheet/">Tailwind CSS Cheat Sheet</a>
+
+`v-after` は `v-click`をトリガーに実行される
+<!-- <div v-click-hide>Hello</div> -->
+<!-- <div class="slidev-vclick-target slidev-vclick-hidden">Text</div> -->
+その他のクリックアニメーションは[こちら](https://sli.dev/guide/animations.html)
+
+</div></div>
+
+---
+preload: false
+---
+## モーション
+
+
+<div class="grid grid-cols-[50%,50%] gap-1"><div>
+```markdown
+<div v-motion
+    :initial="{ opacity: 0, y: 100 }"
+    :enter="{ opacity: 1, y: 0, scale: 1 }">
+    ↑↑下から上のモーション↑↑
+</div>
+```
+<br>
+
+<div
+    v-motion
+    :initial="{ opacity: 0, y: 100 }"
+    :enter="{ opacity: 1, y: 0 }">
+↑↑下から上のモーション↑↑
+</div>
+<br>
+<br>
+<br>
+
+詳しくは[@vueuse/motion](https://motion.vueuse.org/)
+
+</div><div>
+```markdown
+<div
+  v-motion
+  :initial="{
+    y: 100,
+    opacity: 0,
+  }"
+  :enter="{
+    y: 0,
+    opacity: 1,
+    transition: {
+      y: {
+        delay: 1600,
+      },
+      opacity: {
+        duration: 1600,
+      },
+    },
+  }"
+>組み合わせるとこういうこともできます</div>
+```
+
+<div
+  v-motion
+  :initial="{
+    y: 60,
+    opacity: 0,
+  }"
+  :enter="{
+    y: 10,
+    opacity: 1,
+    transition: {
+      y: {
+        delay: 1600,
+      },
+      opacity: {
+        duration: 1600,
+      },
+    },
+  }"
+>組み合わせるとこういうこともできます</div>
+
+</div></div>
 ---
 
 ## アイコン
